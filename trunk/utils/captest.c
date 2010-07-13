@@ -69,7 +69,7 @@ static void report(void)
 		if ((uid != euid && uid != 0) ||
 					capng_have_capability(CAPNG_EFFECTIVE,
 						 CAP_SETUID)) {
-			printf("Attemping to regain root...");
+			printf("Attempting to regain root...");
 			setuid(0);
 			getresuid(&uid, &euid, &suid);
 			if (uid == 0) {
