@@ -1,6 +1,6 @@
 /*
  * filecap.c - A program that lists running processes with capabilities
- * Copyright (c) 2009 Red Hat Inc., Durham, North Carolina.
+ * Copyright (c) 2009-10 Red Hat Inc., Durham, North Carolina.
  * All Rights Reserved.
  *
  * This software may be freely redistributed and/or modified under the
