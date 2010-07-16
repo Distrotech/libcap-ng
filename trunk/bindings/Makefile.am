@@ -23,7 +23,7 @@
 CONFIG_CLEAN_FILES = *.loT *.rej *.orig
 SUBDIRS = 
 
-if HAVE_SWIG
+if HAVE_PYTHON
 SUBDIRS += python
 endif
 
