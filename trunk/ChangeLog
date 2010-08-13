@@ -2,6 +2,7 @@
 - Fix self test build problem on clean system (Sterling X. Winter)
 - Only open regular files in filecap
 - Make building Python bindings optional
+- Python bindings update (arfrever.fta)
 
 0.6.4
 - Update packet socket code to print interface

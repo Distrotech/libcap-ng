@@ -29,7 +29,8 @@ LIBS = $(top_builddir)/src/libcap-ng.la
 pyexec_PYTHON = capng.py
 pyexec_LTLIBRARIES = _capng.la
 pyexec_SOLIBRARIES = _capng.so
-_capng_la_LDFLAGS = -module -avoid-version
+_capng_la_CFLAGS = -shared
+_capng_la_LDFLAGS = -module -avoid-version -shared
 _capng_la_HEADERS: $(top_builddir)/config.h 
 _capng_la_DEPENDENCIES =${top_srcdir}/src/cap-ng.h ${top_builddir}/src/libcap-ng.la
 nodist__capng_la_SOURCES  = capng_wrap.c
