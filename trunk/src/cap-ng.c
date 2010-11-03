@@ -1,5 +1,5 @@
 /* libcap-ng.c --
- * Copyright 2009 Red Hat Inc., Durham, North Carolina.
+ * Copyright 2009-10 Red Hat Inc., Durham, North Carolina.
  * All Rights Reserved.
  *
  * This library is free software; you can redistribute it and/or
@@ -72,7 +72,6 @@ extern int capget(cap_user_header_t header, const cap_user_data_t data);
 
 #ifdef VFS_CAP_U32
  #include <attr/xattr.h>
- #define XATTR_SECURITY_PREFIX "security."
  #if __BYTE_ORDER == __BIG_ENDIAN
   #define FIXUP(x) bswap_32(x)
  #else
@@ -89,6 +88,18 @@ extern int capget(cap_user_header_t header, const cap_user_data_t data);
 #ifndef _LINUX_CAPABILITY_VERSION_3
 #define _LINUX_CAPABILITY_VERSION_3 0x20080522
 #endif
+
+// This public API went private in the 2.6.36 kernel - hope it never changes
+#ifndef XATTR_CAPS_SUFFIX
+#define XATTR_CAPS_SUFFIX "capability"
+#endif
+#ifndef XATTR_SECURITY_PREFIX
+#define XATTR_SECURITY_PREFIX "security."
+#endif
+#ifndef XATTR_NAME_CAPS
+#define XATTR_NAME_CAPS XATTR_SECURITY_PREFIX XATTR_CAPS_SUFFIX
+#endif
+
 
 /* Child processes can't get caps back */
 #ifndef SECURE_NOROOT

@@ -4,6 +4,7 @@
 - Make building Python bindings optional
 - Python bindings update (arfrever.fta)
 - Fix filecap segfault when checking a specific file
+- Add define for missing XATTR_NAME_CAPS since 2.6.36 makes it private
 
 0.6.4
 - Update packet socket code to print interface
