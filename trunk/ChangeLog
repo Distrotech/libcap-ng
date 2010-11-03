@@ -1,3 +1,5 @@
+0.6.6
+
 0.6.5
 - Fix self test build problem on clean system (Sterling X. Winter)
 - Only open regular files in filecap
