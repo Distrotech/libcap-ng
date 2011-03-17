@@ -60,7 +60,7 @@ static int collect_process_info(void)
 		capng_results_t caps;
 		char buf[100];
 		char *tmp, cmd[16], state, *text, *bounds;
-		int fd, len, euid;
+		int fd, len, euid = -1;
 
 		// Skip non-process dir entries
 		if(*ent->d_name<'0' || *ent->d_name>'9')
