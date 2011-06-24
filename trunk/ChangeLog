@@ -1,7 +1,7 @@
 0.6.6
 - In netcap, make sure readlink is handled properly
 - Add CAP_SYSLOG
-- Ensure euid is initialized
+- In netcap and pscap, ensure euid is initialized
 - Add CAP_WAKE_ALARM
 
 0.6.5
