@@ -239,7 +239,7 @@ static int get_bounding_set(void)
 #else
 		(unsigned)getpid();
 #endif
-	f = fopen(buf, "r");
+	f = fopen(buf, "re");
 	if (f == NULL)
 		return -1;
 	__fsetlocking(f, FSETLOCKING_BYCALLER);

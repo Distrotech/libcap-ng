@@ -85,7 +85,7 @@ int main(int argc, char *argv[])
 
 		// Parse up the stat file for the proc
 		snprintf(buf, 32, "/proc/%d/stat", pid);
-		fd = open(buf, O_RDONLY, 0);
+		fd = open(buf, O_RDONLY|O_CLOEXEC, 0);
 		if (fd < 0)
 			continue;
 		len = read(fd, buf, sizeof buf - 1);
@@ -122,7 +122,7 @@ int main(int argc, char *argv[])
 			FILE *f;
 			int line;
 			snprintf(buf, 32, "/proc/%d/status", pid);
-			f = fopen(buf, "rt");
+			f = fopen(buf, "rte");
 			if (f == NULL)
 				euid = 0;
 			else {
