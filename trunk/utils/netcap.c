@@ -72,7 +72,7 @@ static int collect_process_info(void)
 
 		// Parse up the stat file for the proc
 		snprintf(buf, 32, "/proc/%d/stat", pid);
-		fd = open(buf, O_RDONLY, 0);
+		fd = open(buf, O_RDONLY|O_CLOEXEC, 0);
 		if (fd < 0)
 			continue;
 		len = read(fd, buf, sizeof buf - 1);
@@ -109,7 +109,7 @@ static int collect_process_info(void)
 
 		// Get the effective uid
 		snprintf(buf, 32, "/proc/%d/status", pid);
-		sf = fopen(buf, "rt");
+		sf = fopen(buf, "rte");
 		if (sf == NULL)
 			euid = 0;
 		else {
@@ -254,7 +254,7 @@ static void read_tcp(const char *proc, const char *type)
 	int local_port, rem_port, d, state, timer_run, uid, timeout;
 	char rem_addr[128], local_addr[128], more[512];
 
-	f = fopen(proc, "rt");
+	f = fopen(proc, "rte");
 	if (f == NULL) {
 		if (errno != ENOENT)
 			fprintf(stderr, "Can't open %s: %s\n",
@@ -288,7 +288,7 @@ static void read_udp(const char *proc, const char *type)
 	int local_port, rem_port, d, state, timer_run, uid, timeout;
 	char rem_addr[128], local_addr[128], more[512];
 
-	f = fopen(proc, "rt");
+	f = fopen(proc, "rte");
 	if (f == NULL) {
 		if (errno != ENOENT)
 			fprintf(stderr, "Can't open %s: %s\n",
@@ -322,7 +322,7 @@ static void read_raw(const char *proc, const char *type)
 	int local_port, rem_port, d, state, timer_run, uid, timeout;
 	char rem_addr[128], local_addr[128], more[512];
 
-	f = fopen(proc, "rt");
+	f = fopen(proc, "rte");
 	if (f == NULL) {
 		if (errno != ENOENT)
 			fprintf(stderr, "Can't open %s: %s\n",
@@ -360,7 +360,7 @@ static void get_interface(unsigned int iface, char *ifc)
 	// Increment the interface number since header is 2 lines long
 	iface++;
 
-	f = fopen("/proc/net/dev", "rt");
+	f = fopen("/proc/net/dev", "rte");
 	if (f == NULL) {
 		if (errno != ENOENT)
 			fprintf(stderr, "Can't open /proc/net/dev: %s\n",
@@ -392,7 +392,7 @@ static void read_packet(void)
 	unsigned int ref_cnt, type, proto, iface, r, rmem, uid;
 	char more[256], ifc[32];
 
-	f = fopen("/proc/net/packet", "rt");
+	f = fopen("/proc/net/packet", "rte");
 	if (f == NULL) {
 		if (errno != ENOENT)
 			fprintf(stderr, "Can't open /proc/net/packet: %s\n",

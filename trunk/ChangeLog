@@ -1,4 +1,5 @@
 0.6.7
+- Make file opens use the cloexec flag (Cristian Rodríguez)
 
 0.6.6
 - In netcap, make sure readlink is handled properly
