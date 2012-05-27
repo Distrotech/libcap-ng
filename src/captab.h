@@ -1,5 +1,5 @@
 /* captab.h --
- * Copyright 2009,2011 Red Hat Inc., Durham, North Carolina.
+ * Copyright 2009,2011-12 Red Hat Inc., Durham, North Carolina.
  * All Rights Reserved.
  *
  * This library is free software; you can redistribute it and/or
@@ -65,5 +65,8 @@ _S(CAP_SYSLOG,			"syslog"		)
 #endif
 #ifdef CAP_WAKE_ALARM
 _S(CAP_WAKE_ALARM,		"wake_alarm"		)
+#endif
+#ifdef CAP_EPOLLWAKEUP
+_S(CAP_EPOLLWAKEUP,		"epollwakeup"		)
 #endif
 
