@@ -1,6 +1,7 @@
 0.6.7
 - Make file opens use the cloexec flag (Cristian Rodríguez)
 - Add CAP_BLOCK_SUSPEND
+- Fix possible segfaults when CAP_LAST_CAP is larger than the lookup table
 
 0.6.6
 - In netcap, make sure readlink is handled properly

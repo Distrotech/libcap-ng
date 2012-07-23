@@ -898,6 +898,8 @@ char *capng_print_caps_text(capng_print_t where, capng_type_t which)
 	for (i=0; i<=CAP_LAST_CAP; i++) {
 		if (capng_have_capability(which, i)) {
 			const char *n = capng_capability_to_name(i);
+			if (n == NULL)
+				n = "unknown";
 			if (where == CAPNG_PRINT_STDOUT) {
 				if (once == 0) {
 					printf("%s", n);

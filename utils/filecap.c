@@ -100,8 +100,11 @@ int main(int argc, char *argv[])
 					usage();
 			} else if (strcmp(argv[i], "-d") == 0) {
 				for (i=0; i<=CAP_LAST_CAP; i++) {
-					printf("%s\n",
-						capng_capability_to_name(i));
+					const char *n =
+						capng_capability_to_name(i);
+					if (n == NULL)
+						n = "unknown"
+					printf("%s\n", n);
 				}
 				return 0;
 			} else if (argv[i][0] == '/') {
