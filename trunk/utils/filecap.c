@@ -103,7 +103,7 @@ int main(int argc, char *argv[])
 					const char *n =
 						capng_capability_to_name(i);
 					if (n == NULL)
-						n = "unknown"
+						n = "unknown";
 					printf("%s\n", n);
 				}
 				return 0;

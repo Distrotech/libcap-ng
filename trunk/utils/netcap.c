@@ -162,14 +162,14 @@ static int collect_process_info(void)
 			char line[256], ln[256], *s, *e;
 			unsigned long inode;
 			lnode node;
-			int len;
+			int llen;
 
 			if (ent->d_name[0] == '.')
 				continue;
 			snprintf(ln, 256, "%s/%s", buf, ent->d_name);
-			if ((len = readlink(ln, line, sizeof(line)-1)) < 0)
+			if ((llen = readlink(ln, line, sizeof(line)-1)) < 0)
 				continue;
-			line[len] = 0;
+			line[llen] = 0;
 			
 			// Only look at the socket entries
 			if (memcmp(line, "socket:", 7) == 0) {

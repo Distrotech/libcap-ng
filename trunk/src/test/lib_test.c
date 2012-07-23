@@ -59,7 +59,7 @@ int main(void)
 	}
 	printf("Doing advanced bit tests for %d capabilities...\n", last);
 	for (i=0; i<=last; i++) {
-		char *name;
+		const char *name;
 		capng_clear(CAPNG_SELECT_BOTH);
 		rc = capng_update(CAPNG_ADD, CAPNG_EFFECTIVE, i);
 		if (rc) {
