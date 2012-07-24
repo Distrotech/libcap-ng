@@ -39,12 +39,12 @@ The libcap-ng-python package contains the bindings so that libcap-ng
 and can be used by python applications.
 
 %package utils
-Summary: Utilities for analysing and setting file capabilities
+Summary: Utilities for analyzing and setting file capabilities
 License: GPLv2+
 Group: Development/Libraries
 
 %description utils
-The libcap-ng-utils package contains applications to analyse the
+The libcap-ng-utils package contains applications to analyze the
 posix capabilities of all the program running on a system. It also
 lets you set the file system based capabilities.
 
