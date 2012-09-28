@@ -32,6 +32,11 @@
 #define __USE_XOPEN_EXTENDED 1
 #include <ftw.h>
 
+#ifndef FTW_CONTINUE
+#define FTW_CONTINUE 0
+#endif
+
+
 static int show_all = 0, header = 0, capabilities = 0, cremove = 0;
 
 static void usage(void)
