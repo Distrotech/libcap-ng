@@ -71,7 +71,13 @@ extern int capget(cap_user_header_t header, const cap_user_data_t data);
 #endif
 
 #ifdef VFS_CAP_U32
- #include <attr/xattr.h>
+ #ifdef HAVE_SYS_XATTR_H
+   #include <sys/xattr.h>
+ #else
+  #ifdef HAVE_ATTR_XATTR_H
+   #include <attr/xattr.h>
+  #endif
+ #endif
  #if __BYTE_ORDER == __BIG_ENDIAN
   #define FIXUP(x) bswap_32(x)
  #else
