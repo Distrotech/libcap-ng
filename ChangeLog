@@ -1,3 +1,5 @@
+0.7.2
+
 0.7.1
 - Add CAP_COMPROMISE_KERNEL
 - Define FTW_CONTINUE in case its not defined in libc
