@@ -52,7 +52,9 @@ echo .
 echo Checking for header files
 AC_HEADER_STDC
 AC_CHECK_HEADERS(linux/capability.h, [], [AC_MSG_ERROR(linux/capability.h is required in order to build libcap-ng.)])
-AC_CHECK_HEADERS(attr/xattr.h, [], [AC_MSG_WARN(attr/xattr.h not found, disabling file system capabilities.)])
+AC_CHECK_HEADERS(sys/xattr.h, [], [
+	AC_CHECK_HEADERS(attr/xattr.h, [], [AC_MSG_WARN(attr/xattr.h not found, disabling file system capabilities.)])
+	])
 AC_CHECK_HEADERS(linux/securebits.h, [], [])
 
 AC_C_CONST
