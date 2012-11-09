@@ -90,7 +90,7 @@ static int check_file(const char *fpath,
 int main(int argc, char *argv[])
 {
 #if CAP_LAST_CAP < 31 || !defined (VFS_CAP_U32) || \
-	!defined (HAVE_ATTR_XATTR_H) || !defined(HAVE_SYS_XATTR_H)
+	(!defined (HAVE_ATTR_XATTR_H) && !defined(HAVE_SYS_XATTR_H))
 	fprintf(stderr, "File based capabilities are not supported\n");
 #else
 	char *path_env, *path = NULL, *dir = NULL;
