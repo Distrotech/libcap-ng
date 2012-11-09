@@ -111,6 +111,6 @@ rm -rf $RPM_BUILD_ROOT
 %attr(0644,root,root) %{_mandir}/man8/*
 
 %changelog
-* Tue Oct 24 2012 Steve Grubb <sgrubb@redhat.com> 0.7.2-1
+* Tue Nov 09 2012 Steve Grubb <sgrubb@redhat.com> 0.7.2-1
 - New upstream release
 
