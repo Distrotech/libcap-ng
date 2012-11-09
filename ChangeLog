@@ -1,3 +1,5 @@
+0.7.4
+
 0.7.3
 - Make sure stderr is used consistently in utils
 - Fix logic causing file based capabilities to not be supported when it should
