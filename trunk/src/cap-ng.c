@@ -66,7 +66,7 @@ extern int capget(cap_user_header_t header, const cap_user_data_t data);
 
 // If we don't have the xattr library, then we can't
 // compile-in file system capabilities
-#if !defined(HAVE_ATTR_XATTR_H) && !defined (HAVE_SYS_XATTR_H)
+#if !(!defined(HAVE_ATTR_XATTR_H) && !defined (HAVE_SYS_XATTR_H))
 #undef VFS_CAP_U32
 #endif
 
