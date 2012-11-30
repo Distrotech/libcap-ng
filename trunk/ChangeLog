@@ -1,4 +1,5 @@
 0.7.4
+- In pscap, remove unused code
 
 0.7.3
 - Make sure stderr is used consistently in utils
