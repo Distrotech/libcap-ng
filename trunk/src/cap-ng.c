@@ -1,5 +1,5 @@
 /* libcap-ng.c --
- * Copyright 2009-10 Red Hat Inc., Durham, North Carolina.
+ * Copyright 2009-10, 2013 Red Hat Inc., Durham, North Carolina.
  * All Rights Reserved.
  *
  * This library is free software; you can redistribute it and/or
@@ -28,6 +28,7 @@
 #include <stdio_ext.h>
 #include <stdlib.h>
 #include <sys/prctl.h>
+#include <pwd.h>
 #include <grp.h>
 #include <sys/stat.h>
 #include <stdarg.h>
@@ -621,6 +622,18 @@ int capng_change_id(int uid, int gid, capng_flags_t flag)
 		rc = setresgid(gid, gid, gid);
 		if (rc)
 			return -4;
+	}
+
+	// See if we need to init supplemental groups
+	if ((flag & CAPNG_INIT_SUPP_GRP) && uid != -1) {
+		struct passwd *pw = getpwuid(uid);
+		if (pw == NULL)
+			return -10;
+		if (gid != -1) {
+			if (initgroups(pw->pw_name, gid))
+				return -5;
+		} else if (initgroups(pw->pw_name, pw->pw_gid))
+			return -5;
 	}
 
 	// See if we need to unload supplemental groups
